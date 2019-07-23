@@ -1,0 +1,132 @@
+﻿//NOTE:VCI=3.3V
+//*****************************
+void write_command(unsigned int i)
+{
+	 cs=0;
+	 rd=1;
+	 rs=0;	 
+ 	 P2=i>>8;
+	 P0=i;
+	 rw=0;
+	 rw=1;
+	 cs=1; 
+}
+void write_data(unsigned int i)
+{
+	 cs=0;
+	 rd=1;
+	 rs=1;	
+	 P2=i>>8;
+	 P0=i;
+	 rw=0;;
+	 rw=1;
+	 cs=1;
+}
+//*********************************************************
+void initi(void)
+{
+ //**************Reset LCD Driver******
+   res=1;
+   delay(1);
+   res=0;
+   delay(10);
+   res=1;
+   delay(120);
+//*****************************LCD SETING
+write_command(0xE9);
+write_data(0x20);
+
+write_command(0x11);// Exit_sleep_mode
+delay(120);
+
+write_command(0xD1);
+write_data(0x00);
+write_data(0x6B); //vcom  58-ԭLCDֵ
+write_data(0x15);
+
+write_command(0xD0);
+write_data(0x07);
+write_data(0x05);
+write_data(0x04);
+
+write_command(0x36);
+write_data(0x48);
+
+write_command(0x3A);
+write_data(0x55);
+
+write_command(0xC1);
+write_data(0x10);
+write_data(0x10);
+write_data(0x02);
+write_data(0x02);
+
+write_command(0xC0); //Set Default Gamma
+write_data(0x00);
+write_data(0x35);
+write_data(0x00);
+write_data(0x00);
+write_data(0x01);
+write_data(0x02);
+
+write_command(0xC5); //Set frame rate
+write_data(0x04);
+
+write_command(0xD2); //power setting
+write_data(0x01);
+write_data(0x33);
+
+write_command(0xC8); //Set Gamma
+write_data(0x02);
+write_data(0x77);
+write_data(0x47);
+write_data(0x09);
+write_data(0x09);
+write_data(0x00);
+write_data(0x03);
+write_data(0x00);
+write_data(0x57);
+write_data(0x50);
+write_data(0x00);
+write_data(0x10);
+write_data(0x08);
+write_data(0x80);
+write_data(0x00);
+
+write_command(0xEA); //Enable 3 Gamma
+write_data(0x00); 
+
+write_command(0x2A); //Frame rate control //240
+write_data(0x00);
+write_data(0x00);
+write_data(0x00);
+write_data(0xeF);
+
+write_command(0x2B); //Display function control 400
+write_data(0x00);
+write_data(0x00);
+write_data(0x01);
+write_data(0x8F);
+
+write_command(0x29);//DISPLAY ON
+write_command(0x2C);//Write memory start
+}
+
+//****************************
+void LCD_Enter_Standby(void)
+{
+   write_command(0x28);
+    delayms(10); 
+   write_command(0x10);
+   delayms(25); 
+   }
+
+ //*******************************************
+void LCD_Exit_Standby (void)
+{
+
+   write_command(0x11);// Exit Sleep/ Standby mode
+    delayms(120); 
+   write_command(0x29);//DISPLAY ON
+
+  }

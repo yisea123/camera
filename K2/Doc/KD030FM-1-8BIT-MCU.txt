@@ -1,0 +1,214 @@
+NOTE:VCI=3.3V
+//**************16位指令********************************
+void write_command(unsigned int i)
+{
+	 cs=0;
+	 rd=1;
+	 rs=0;	 
+ 	 P2=i>>8;
+	 P0=i;
+	 rw=0;
+	 rw=1;
+	 cs=1; 
+}
+//****************16位数据*************************
+void write_data(unsigned int i)
+{
+	 cs=0;
+	 rd=1;
+	 rs=1;	
+	 P2=i>>8;
+	 P0=i;
+	 rw=0;;
+	 rw=1;
+	 cs=1;
+}
+//********************16位送显示Display data*****************************
+void write_data1(byte data_h,data_l)
+{
+   cs=0;
+   rs=1;
+   rd=1;    
+   P2=data_h;
+   P0=data_l;
+   rw=0;
+   rw=1;
+   cs=1;
+}
+
+//**********************8位指令***************************************
+void write_command(unsigned int i)
+{
+	 cs=0;
+	 rd=1;
+	 rs=0;	 
+ 	 P2=i;
+	 rw=0;
+	 rw=1;
+	 cs=1; 
+}
+//*******************8位数据**************************
+void write_data(unsigned int i)
+{
+	 cs=0;
+	 rd=1;
+	 rs=1;	
+	 P2=i>>8;
+	 P2=i;
+	 rw=0;;
+	 rw=1;
+	 cs=1;
+}
+/*************************8位送显示数据**********************
+void write_data1(byte data_h,data_l)
+{
+   cs=0;
+   rs=1;
+   rd=1; 
+   P2=data_h;
+   rw=0;
+   rw=1;
+   P2=data_l;
+   rw=0;
+   rw=1;
+   cs=1;
+}
+
+/*************************************************/
+void initi(void)
+{
+   res=1;
+   delay(1);
+   res=0;
+   delay(10);
+   res=1;
+   delay(120);
+
+//************************************************************
+write_command(0xE9);
+write_data(0x20);
+
+write_command(0x11);//Exit_sleep_mode
+delay(120);
+
+write_command(0xD1);//VCOM 
+write_data(0x00);
+write_data(0x5B);//VCOMH
+write_data(0x16);//VDV
+
+write_command(0xD0);//POWRER SET
+write_data(0x07); //VC=1.0*VCI
+write_data(0x04);//BT VGH 15V,VGL 10V
+write_data(0x8C);//VRH
+
+write_command(0x36);//Set_address_mode
+write_data(0x48);
+
+write_command(0xC1);//Display_Timing_Setting 
+write_data(0x10);
+write_data(0x10);
+write_data(0x02);
+write_data(0x02);
+
+write_command(0xC0); //Panel Driving Setting
+write_data(0x00);
+write_data(0x35);
+write_data(0x00);
+write_data(0x00);
+write_data(0x01);
+write_data(0x02);
+
+write_command(0xC5);//Frame Rate Control
+write_data(0x04); //72,03-76
+
+write_command(0xD2);//Power_Setting for Normal Mod
+write_data(0x01);
+write_data(0x22);//44
+
+write_command(0xC8);//GAMMA
+write_data(0x01);
+write_data(0x77);
+write_data(0x77);
+write_data(0x09);
+write_data(0x08);
+write_data(0x00);
+write_data(0x00);
+write_data(0x00);
+write_data(0x67);
+write_data(0x90);
+write_data(0x00);
+write_data(0x08);
+write_data(0x08);
+write_data(0x80);
+write_data(0x00);
+
+write_command(0xEA);//3-Gamma Function Control
+write_data(0x00);
+write_data(0xC0);
+
+write_command(0x3A);//Set_pixel_format
+write_data(0x55);//55-16BIT ,66-18BIT
+
+write_command(0x21);//Enter_invert_mode
+//******************************
+write_command(0x2A); //Frame rate control
+write_data(0x00);
+write_data(0x00);
+write_data(0x00);
+write_data(0xEF);
+
+write_command(0x2B); //Display function control
+write_data(0x00);
+write_data(0x00);
+write_data(0x01);
+write_data(0x8F);
+
+write_command(0x29);//DISPLAY ON
+delay(25);
+write_command(0x2C);//Write memory start
+
+}
+
+//*********************************************************************************************
+void EnterSleep (void)
+{
+    write_command(0x28);
+    delay(20);
+    write_command(0x10);
+  
+  }
+
+//*********************************************************
+void ExitSleep (void)
+
+ {
+    write_command(0x11);
+    delay(120);
+    write_command(0x29);
+
+   }
+
+
+//*****************窗口地址************************************
+
+void LCD_Window_Set(int x0,int y0,int x1,int y1)
+{ 
+  LCD_Cmd_wr(0x2a);
+  LCD_para_wr(x0>>8);
+  LCD_para_wr(x0);
+  LCD_para_wr(x1>>8);
+  LCD_para_wr(x1); 
+  
+  LCD_Cmd_wr(0x2b);
+  LCD_para_wr(y0>>8);
+  LCD_para_wr(y0);
+  LCD_para_wr(y1>>8);
+  LCD_para_wr(y1); 
+
+  LCD_Cmd_wr(0x2c);
+}
+
+
+
+
+
