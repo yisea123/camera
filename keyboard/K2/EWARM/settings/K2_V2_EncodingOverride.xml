@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<userOverrides>
+  <override>
+    <path>D:\Workspace\IAR\keyboard\K2\Release\&#x4Fee;&#x6539;&#x8BB0;&#x5F55;.md</path>
+    <encoding>UTF-8</encoding>
+  </override>
+  <override>
+    <path>D:\Workspace\IAR\keyborad\K2\K2_V2\Release\&#x4Fee;&#x6539;&#x8BB0;&#x5F55;.md</path>
+    <encoding>UTF-8</encoding>
+  </override>
+  <override>
+    <path>W:\Workspace\Keyborad\K2\K2_V2\Release\&#x4Fee;&#x6539;&#x8BB0;&#x5F55;.md</path>
+    <encoding>UTF-8</encoding>
+  </override>
+  <override>
+    <path>W:\Workspace\Keyborad\K2\K2_V2\Source\Lib\STemWin\Config\LCDConf_FlexColor_Template.c</path>
+    <encoding>System</encoding>
+  </override>
+</userOverrides>
+
+

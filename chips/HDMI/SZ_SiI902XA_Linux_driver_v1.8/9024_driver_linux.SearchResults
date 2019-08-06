@@ -1,0 +1,55 @@
+---- SetDE Matches (6 in 1 files) ----
+siHdmiTx_902x_TPI.c (hdmi):// Function Name: SetDE()
+siHdmiTx_902x_TPI.c (hdmi):byte SetDE (void)
+siHdmiTx_902x_TPI.c (hdmi):	TPI_TRACE_PRINT((">>SetDE()\n"));
+siHdmiTx_902x_TPI.c (hdmi):		TPI_TRACE_PRINT((">>SetDE() not allowed with 3D video format\n"));
+siHdmiTx_902x_TPI.c (hdmi):		DE_Status = SetDE();								// Call SetDE() with Video Mode as a parameter
+---- siHdmiTx_PowerStateD3 Matches (5 in 3 files) ----
+hdmi_sii902xA.c (hdmi):				siHdmiTx_PowerStateD3();
+siHdmiTx_902x_TPI.c (hdmi):	siHdmiTx_PowerStateD3();
+siHdmiTx_902x_TPI.c (hdmi):// Function Name: siHdmiTx_PowerStateD3()
+siHdmiTx_902x_TPI.c (hdmi):void siHdmiTx_PowerStateD3 (void)
+siHdmiTx_902x_TPI.h (hdmi):void siHdmiTx_PowerStateD3 (void);
+---- D3_hot Matches (1 in 1 files) ----
+siHdmiTx_902x_TPI.c (hdmi):#ifdef D3_hot
+---- TPI_INTERRUPT_ENABLE_REG Matches (6 in 2 files) ----
+siHdmiTx_902x_TPI.c (hdmi):    	ReadSetWriteTPI(TPI_INTERRUPT_ENABLE_REG, Interrupt_Pattern);
+siHdmiTx_902x_TPI.c (hdmi):    	ReadClearWriteTPI(TPI_INTERRUPT_ENABLE_REG, Interrupt_Pattern);
+siHdmiTx_902x_TPI.c (hdmi):	WriteByteTPI(TPI_INTERRUPT_ENABLE_REG,HOT_PLUG_EVENT |0x08);
+siHdmiTx_902x_TPI.c (hdmi):	WriteByteTPI(TPI_INTERRUPT_ENABLE_REG,HOT_PLUG_EVENT |0x08);
+siHdmiTx_902x_TPI.c (hdmi):			ReadSetWriteTPI(TPI_INTERRUPT_ENABLE_REG, HOT_PLUG_EVENT);	// Enable HPD interrupt bit
+siHdmiTx_902x_TPI.h (hdmi):#define TPI_INTERRUPT_ENABLE_REG				(0x3C)
+---- TxHW_Reset Matches (5 in 1 files) ----
+siHdmiTx_902x_TPI.c (hdmi):// Function Name: TxHW_Reset()
+siHdmiTx_902x_TPI.c (hdmi):void TxHW_Reset (void)
+siHdmiTx_902x_TPI.c (hdmi):	TPI_TRACE_PRINT((">>TxHW_Reset()\n"));
+siHdmiTx_902x_TPI.c (hdmi):	TxHW_Reset();							
+siHdmiTx_902x_TPI.c (hdmi):	TxHW_Reset();
+---- siHdmiTx_TPI_Init Matches (7 in 3 files) ----
+hdmi_sii902xA.c (hdmi):				siHdmiTx_TPI_Init();
+siHdmiTx_902x_TPI.c (hdmi):	siHdmiTx_TPI_Init();
+siHdmiTx_902x_TPI.c (hdmi):// Function Name: siHdmiTx_TPI_Init()
+siHdmiTx_902x_TPI.c (hdmi):byte siHdmiTx_TPI_Init (void)
+siHdmiTx_902x_TPI.c (hdmi):	TPI_TRACE_PRINT(("\n>>siHdmiTx_TPI_Init()\n"));
+siHdmiTx_902x_TPI.c (hdmi):		siHdmiTx_TPI_Init();
+siHdmiTx_902x_TPI.h (hdmi):byte siHdmiTx_TPI_Init (void);
+---- IsHDMI_Sink Matches (7 in 2 files) ----
+siHdmiTx_902x_TPI.c (hdmi):						if (IsHDMI_Sink())
+siHdmiTx_902x_TPI.c (hdmi):	if (!IsHDMI_Sink()) 
+siHdmiTx_902x_TPI.c (hdmi):	if (!IsHDMI_Sink()) 
+siHdmiTx_902x_TPI.c (hdmi):	if (IsHDMI_Sink())					// Set InfoFrames only if HDMI output mode
+siHdmiTx_902x_TPI.c (hdmi):	if (IsHDMI_Sink())              // select output mode (HDMI/DVI) according to sink capabilty
+siHdmiTx_902x_TPI.h (hdmi):#define IsHDMI_Sink()		(g_edid.HDMI_Sink)
+siHdmiTx_902x_TPI.h (hdmi):#define IsHDMI_Sink()		(TRUE)
+---- AV_MUTE_MUTED Matches (5 in 2 files) ----
+siHdmiTx_902x_TPI.c (hdmi):					   TMDS_OUTPUT_CONTROL_POWER_DOWN | AV_MUTE_MUTED);
+siHdmiTx_902x_TPI.c (hdmi):	ReadModifyWriteTPI(TPI_SYSTEM_CONTROL_DATA_REG, AV_MUTE_MASK, AV_MUTE_MUTED);
+siHdmiTx_902x_TPI.c (hdmi):				LINK_INTEGRITY_DYNAMIC | TMDS_OUTPUT_CONTROL_ACTIVE | AV_MUTE_MUTED);
+siHdmiTx_902x_TPI.c (hdmi):	//ReadModifyWriteTPI(TPI_SYSTEM_CONTROL_DATA_REG, TMDS_OUTPUT_CONTROL_MASK | AV_MUTE_MASK, TMDS_OUTPUT_CONTROL_ACTIVE | AV_MUTE_MUTED);
+siHdmiTx_902x_TPI.h (hdmi):#define AV_MUTE_MUTED							(0x08)
+---- siHdmiTx_VideoSel Matches (5 in 3 files) ----
+hdmi_sii902xA.c (hdmi):				siHdmiTx_VideoSel( HDMI_1024_768_60,VMD_HDMIFORMAT_CEA_VIC);
+siHdmiTx_902x_TPI.c (hdmi):// Function Name: siHdmiTx_VideoSel()
+siHdmiTx_902x_TPI.c (hdmi):// Function Name: siHdmiTx_VideoSel()
+siHdmiTx_902x_TPI.c (hdmi):void siHdmiTx_VideoSel (byte vmode,byte VideoFormat)
+siHdmiTx_902x_TPI.h (hdmi):void siHdmiTx_VideoSel (byte vmode);

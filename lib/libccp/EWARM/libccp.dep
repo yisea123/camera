@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>2489530015</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$PROJ_DIR$\..\source\ccp.c</file>
+      <file>$TOOLKIT_DIR$\inc\c\string.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\ccp_pelco.pbi</file>
+      <file>$PROJ_DIR$\..\readme.md</file>
+      <file>$PROJ_DIR$\..\source\llist.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Product_string.h</file>
+      <file>$PROJ_DIR$\..\source\visca.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdlib.h</file>
+      <file>$PROJ_DIR$\..\source\ccp_pelco.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\xencoding_limits.h</file>
+      <file>$PROJ_DIR$\..\source\ccp_cam.c</file>
+      <file>$PROJ_DIR$\..\source\ccp_visca.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\ccp_cam.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Threads.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
+      <file>$PROJ_DIR$\..\source\ccp_pelco.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\ccp.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\libccp.pbd</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
+      <file>$PROJ_DIR$\..\source\ccp.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\ccp_visca.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\ccp.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\ccp_visca.o</file>
+      <file>$PROJ_DIR$\..\..\output\libccp_1302.a</file>
+      <file>$PROJ_DIR$\Debug\Obj\ccp_pelco.o</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\ccp_cam.o</file>
+      <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
+      <file>$PROJ_DIR$\..\source\ccp_visca.h</file>
+      <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
+    </outputs>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>IARCHIVE</name>
+          <file> 24</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\source\ccp.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 22</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 31 10 27 9 14 7 8 5 30 1 4 15 20 26 19 29</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 20 31 27 7 26 19 29 10 14 4 8 15 30 9 1 5</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\source\ccp_cam.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 13</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 28</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 7 8 14 1 31 27 10 6 4 26 19 29 20 15 5</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 20 31 27 7 26 19 29 10 14 4 8 15 6 1 5</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\source\ccp_visca.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 21</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 23</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 27 7 20 31 6 30 14 8 10 1 15 5 26 19 29 4</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 1 27 7 26 19 29 10 14 15 5 30 20 31 4 8 6</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\source\ccp_pelco.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 2</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 25</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 31 27 7 14 15 6 20 4 26 10 19 29 9 8</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 9 20 31 27 7 26 19 29 10 14 4 8 15 6</file>
+        </tool>
+      </inputs>
+    </file>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <outputs/>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>ILINK</tool>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+
